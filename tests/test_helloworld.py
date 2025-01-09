@@ -1,9 +1,9 @@
 """
 """
-import mypythonlibrary.helloworld
-import mypythonlibrary.clitools
+import uclass.helloworld
+import uclass.clitools
 
 
 def test_helloworld():
-    string = mypythonlibrary.helloworld.helloworlds(1)
+    string = uclass.helloworld.helloworlds(1)
     assert string == 'Hello World!'
