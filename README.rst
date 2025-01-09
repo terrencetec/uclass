@@ -1,11 +1,11 @@
 |logo|
 
-*One-line description here!*
+*USPSA Classifer high hit factor Python repository*
 
 |website| |release| |rtd| |license| |build_and_tests| |codecov|
 
-My Python Library
-=================
+UClass
++=====
 
 This is a template for creating new python library. Here are some descriptions!
 
@@ -15,9 +15,9 @@ This is a template for creating new python library. Here are some descriptions!
 * print many Hello Worlds!
 * command line tools for printing a lot of Hello Worlds!
 
-**Documentation**: https://mypythonlibrary.readthedocs.io
+**Documentation**: https://uclass.readthedocs.io
 
-**Repository**: https://github.com/terrencetec/mypythonlibrary
+**Repository**: https://github.com/terrencetec/uclass
 
 .. contents::
    :depth: 2
@@ -65,8 +65,8 @@ Install from source
 
 .. code:: bash
 
-   git clone https://github.com/terrencetec/mypythonlibrary.git
-   cd mypythonlibrary
+   git clone https://github.com/terrencetec/uclass.git
+   cd uclass
    pip install .
 
 How to Contribute
@@ -130,28 +130,28 @@ Open index.html with a browser (if this was set as the first page).
 
 .. |logo| image:: docs/source/_static/logo.svg
     :alt: Logo
-    :target: https://github.com/terrencetec/mypythonlibrary
+    :target: https://github.com/terrencetec/uclass
 
-.. |website| image:: https://img.shields.io/badge/website-mypythonlibrary-blue.svg
+.. |website| image:: https://img.shields.io/badge/website-uclass-blue.svg
     :alt: Website
-    :target: https://github.com/terrencetec/mypythonlibrary
+    :target: https://github.com/terrencetec/uclass
 
-.. |release| image:: https://img.shields.io/github/v/release/terrencetec/mypythonlibrary?include_prereleases
+.. |release| image:: https://img.shields.io/github/v/release/terrencetec/uclass?include_prereleases
    :alt: Release
-   :target: https://github.com/terrencetec/mypythonlibrary/releases
+   :target: https://github.com/terrencetec/uclass/releases
 
-.. |rtd| image:: https://readthedocs.org/projects/mypythonlibrary/badge/?version=latest
+.. |rtd| image:: https://readthedocs.org/projects/uclass/badge/?version=latest
    :alt: Read the Docs
-   :target: https://mypythonlibrary.readthedocs.io/
+   :target: https://uclass.readthedocs.io/
 
-.. |license| image:: https://img.shields.io/github/license/terrencetec/mypythonlibrary
+.. |license| image:: https://img.shields.io/github/license/terrencetec/uclass
     :alt: License
-    :target: https://github.com/terrencetec/mypythonlibrary/blob/master/LICENSE
+    :target: https://github.com/terrencetec/uclass/blob/master/LICENSE
 
-.. |build_and_tests| image:: https://github.com/terrencetec/mypythonlibrary/actions/workflows/github-action-ci.yml/badge.svg
+.. |build_and_tests| image:: https://github.com/terrencetec/uclass/actions/workflows/github-action-ci.yml/badge.svg
    :alt: built and tests
-   :target: https://github.com/terrencetec/mypythonlibrary/actions/workflows/github-action-ci.yml
+   :target: https://github.com/terrencetec/uclass/actions/workflows/github-action-ci.yml
 
-.. |codecov| image:: https://codecov.io/gh/terrencetec/mypythonlibrary/branch/master/graph/badge.svg?token=NMEBAYFE2N
+.. |codecov| image:: https://codecov.io/gh/terrencetec/uclass/branch/master/graph/badge.svg?token=NMEBAYFE2N
     :alt: codecov
-    :target: https://codecov.io/gh/terrencetec/mypythonlibrary
+    :target: https://codecov.io/gh/terrencetec/uclass

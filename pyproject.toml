@@ -1,12 +1,12 @@
 [project]
-name = "mypythonlibrary"
+name = "uclass"
 version = "0.0.0"
 authors = [
   {name="Terrence Tsang", email="terrencetec@gmail.com"},
 ]
-description = "A template for creating new python library"
+description = "USPSA classifier high hit factor Python repository"
 readme = "README.rst"
-requires-python = ">=3"
+requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -14,6 +14,7 @@ classifiers = [
 ]
 dependencies = [
   "numpy",
+  "scipy",
 ] 
 
 [tool.setuptools]
@@ -21,12 +22,12 @@ py-modules = ["__init__"]
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["mypythonlibrary*"]
+include = ["uclass*"]
 
 
 [project.urls]
-Homepage = "https://github.com/terrencetec/mypythonlibrary"
-Issues = "https://github.com/terrencetec/mypythonlibrary/issues"
+Homepage = "https://github.com/terrencetec/uclass"
+Issues = "https://github.com/terrencetec/uclass/issues"
 
 [project.scripts]
-print-hello-worlds = "mypythonlibrary.clitools.print_hello_worlds:main"
+print-hello-worlds = "uclass.clitools.print_hello_worlds:main"

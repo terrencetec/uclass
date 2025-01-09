@@ -1,7 +1,7 @@
 import logging
 
 
-logger = logging.getLogger("mypythonlibrary")
+logger = logging.getLogger("uclass")
 
 logger.setLevel(logging.DEBUG)
 
