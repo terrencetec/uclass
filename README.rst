@@ -5,7 +5,7 @@
 |website| |release| |rtd| |license| |build_and_tests| |codecov|
 
 UClass
-+=====
+======
 
 This is a template for creating new python library. Here are some descriptions!
 
