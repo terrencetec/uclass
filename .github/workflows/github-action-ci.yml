@@ -11,7 +11,7 @@ jobs:
         python-version: [">=3.8"]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
@@ -31,8 +31,8 @@ jobs:
       - name: Test with pytest
         run: |
           pip install pytest-cov pytest
-          pytest --cov-branch --cov-report=xml
-          # py.test --cov-report term --cov=mypygthonlibrary
+          # pytest --cov-branch --cov-report=xml
+          py.test --cov-report term --cov=mypygthonlibrary
       - uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
