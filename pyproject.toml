@@ -1,0 +1,32 @@
+[project]
+name = "mypythonlibrary"
+version = "0.0.0"
+authors = [
+  {name="Terrence Tsang", email="terrencetec@gmail.com"},
+]
+description = "A template for creating new python library"
+readme = "README.rst"
+requires-python = ">=3"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "numpy",
+] 
+
+[tool.setuptools]
+py-modules = ["__init__"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mypythonlibrary*"]
+
+
+[project.urls]
+Homepage = "https://github.com/terrencetec/mypythonlibrary"
+Issues = "https://github.com/terrencetec/mypythonlibrary/issues"
+
+[project.scripts]
+print-hello-worlds = "mypythonlibrary.clitools.print_hello_worlds:main"
