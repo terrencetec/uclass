@@ -31,7 +31,7 @@ jobs:
       - name: Test with pytest
         run: |
           pip install pytest-cov pytest
-          pytest-cov --cov-branch --cov-report=xml
+          pytest-cov --cov-branch --cov-report=xml --cov=uclass
           # py.test --cov-report term --cov=uclass
       - uses: codecov/codecov-action@v5
         with:
