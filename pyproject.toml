@@ -15,7 +15,11 @@ classifiers = [
 dependencies = [
   "numpy",
   "scipy",
+  "pandas",
 ] 
+
+[project.optional-dependencies]
+mongo = ["pymongo"]
 
 [tool.setuptools]
 py-modules = ["__init__"]
