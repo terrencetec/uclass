@@ -22,9 +22,9 @@ jobs:
           sudo apt-get update -qq;
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      # - name: install uclass
-      #   run: |
-      #     pip install .
+      - name: install uclass
+        run: |
+          pip install .
       # - name: Lint with ruff
       #   run: |
       #     # stop the build if there are Python syntax errors or undefined names
