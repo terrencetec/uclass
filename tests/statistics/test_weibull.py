@@ -1,12 +1,12 @@
 """Test uclass.statistics.weibull"""
 import numpy as np
 
-import uclass.statistics.weibull
+import uclass
 
 
 k = 3.6
 lam = 5
-weibull = uclass.statistics.weibull.Weibull(lam=lam, k=k)
+weibull = uclass.Weibull(lam=lam, k=k)
 
 def test_mean():
     """Test mean"""
