@@ -13,5 +13,5 @@ omit =
     tests/*
     uclass/statistics/distribution.py
     uclass/clitools/*
-    uclass/database/mongo.py
+    uclass/database/*
     uclass/logger.py
