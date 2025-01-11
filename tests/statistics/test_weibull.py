@@ -55,3 +55,7 @@ class TestWeibull(unittest.TestCase):
         kurtosis = self.weibull.kurtosis
         kurtosis_true = -0.2832548
         self.assertTrue(np.isclose(kurtosis, kurtosis_true))
+
+
+if __name__ == "__main__":
+    unittest.main()
