@@ -12,3 +12,5 @@ ignore_errors = True
 omit =
     tests/*
     uclass/statistics/distribution.py
+    uclass/clitools/*
+    uclass/database/mongo.py

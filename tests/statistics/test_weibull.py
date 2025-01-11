@@ -8,6 +8,7 @@ k = 3.6
 lam = 5
 weibull = uclass.statistics.weibull.Weibull(lam=lam, k=k)
 
+
 def test_mean():
     """Test mean"""
     mean = weibull.mean
@@ -63,7 +64,7 @@ def test_pdf():
     weibull.pdf(x)
 
 
-def test_pdf():
-    """Test pdf"""
+def test_cdf():
+    """Test cdf"""
     x = np.linspace(0, 10, 1024)
     weibull.cdf(x)
