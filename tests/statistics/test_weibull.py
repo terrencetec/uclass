@@ -68,3 +68,9 @@ def test_cdf():
     """Test cdf"""
     x = np.linspace(0, 10, 1024)
     weibull.cdf(x)
+
+def test_quantile():
+    """Test quantile"""
+    x = weibull.quantile(0.5)
+    x_true = 4.516009
+    assert np.isclose(x, x_true)

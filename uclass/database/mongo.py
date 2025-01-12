@@ -1,6 +1,7 @@
 """Mongo database class"""
 import pymongo.mongo_client
 import pandas
+import numpy as np
 
 
 class Mongo(pymongo.mongo_client.MongoClient):
@@ -53,6 +54,8 @@ class Mongo(pymongo.mongo_client.MongoClient):
                 if item["bad"]:
                     continue
             hf.append(item["hf"])
+
+        hf = np.array(hf)
 
         return hf
     

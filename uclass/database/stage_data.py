@@ -1,5 +1,6 @@
 """Stage data class"""
 
+
 class StageData:
     """Stage data"""
     def __init__(self, classifier, division, database="MongoDB"):

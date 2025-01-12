@@ -125,3 +125,22 @@ class Weibull:
         lam = self.lam
         _cdf = 1-np.exp(-(x/lam)**k)
         return _cdf
+
+    def quantile(self, percentile):
+        """Quantile function
+        
+        Parameters
+        ----------
+        percentile : float
+            Percentile (in fraction).
+
+        Returns
+        -------
+        x : float
+            The value of the random variable.
+        """
+        k = self.k
+        lam = self.lam
+        x = lam * (-np.log(1-percentile))**(1/k)
+        return x
+
