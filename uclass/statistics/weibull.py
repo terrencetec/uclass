@@ -90,37 +90,53 @@ class Weibull:
         """Standard deviation"""
         return self.variance**.5
 
-    def pdf(self, x):
+    def pdf(self, x, lam=None, k=None):
         """Probability density function
         
         Parameters
         ----------
         x : array-like
-            The random variable
+            The random variable.
+        lam : float, optional
+            Scale parameter.
+        k : float, optional
+            shape parameter.
 
         Returns
         -------
         array-like
             The probability density function.
         """
+        if lam is not None:
+            self.lam = lam
+        if k is not None:
+            self.k = k
         k = self.k
         lam = self.lam
         _pdf = (k/lam) * (x/lam)**(k-1) * np.exp(-(x/lam)**k)
         return _pdf
 
-    def cdf(self, x):
+    def cdf(self, x, lam=None, k=None):
         """Cumulative distribution function
         
         Parameters
         ----------
         x : array-like
             The random variable
+        lam : float, optional
+            Scale parameter.
+        k : float, optional
+            shape parameter.
 
         Returns
         -------
         array-like
             The cumulative distribution function
         """
+        if lam is not None:
+            self.lam = lam
+        if k is not None:
+            self.k = k
         k = self.k
         lam = self.lam
         _cdf = 1-np.exp(-(x/lam)**k)

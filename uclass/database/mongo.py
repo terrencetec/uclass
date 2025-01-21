@@ -55,8 +55,6 @@ class Mongo(pymongo.mongo_client.MongoClient):
                     continue
             hf.append(item["hf"])
 
-        hf = np.array(hf)
-
         return hf
     
     def ping(self):

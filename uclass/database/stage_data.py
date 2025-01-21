@@ -1,4 +1,5 @@
 """Stage data class"""
+import numpy as np
 
 
 class StageData:
@@ -69,8 +70,18 @@ class StageData:
         """database.setter"""
         self._database = _database
 
-    def get_hf(self):
-        """Get hit factors"""
+    def get_hf(self, include_zeros=False):
+        """Get hit factors
+        
+        Parameters
+        ----------
+        include_zeros : bool, optional
+            Include zero hit factor.
+            Default False.
+        """
         hf = self.database.get_hf(self.classifier, self.division)
+        hf = np.array(hf)
+        if not include_zeros:
+            hf = hf[hf>0]
         return hf
 

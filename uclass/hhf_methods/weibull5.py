@@ -7,33 +7,26 @@ import uclass.statistics.weibull
 
 class Weibull5:
     """Weibull 5"""
-    def __init__(self, hf, class_match="M"):
+    def __init__(self, hf, percentile=0.95, percentage=0.85):
         """Constructor
 
         Parameters
         ----------
         hf : array-like
             List of hit factors.
-            
-        class_match : str
-            The target class percentile to match.
-            Choose from ["GM", "M", "A"].
-            Defaults "M", Top 5th percentile is M class.
-            1st percentile and 15th percentile for GM and A. 
+
+        percentile : float, optional
+            The percentile to match a certain hit factor percentage.
+            Defaults 0.95.
+        percentage : float, optional
+            The hit factor percentage (in fraction) of the percentile.
+            Defaults 0.85.
         """
         self.hf = hf
-        if class_match == "GM":
-            self.percentile_match = 0.99
-            self.hhf_multiplier = 1 / 0.95
-        elif class_match == "M":
-            self.percentile_match = 0.95
-            self.hhf_multiplier = 1 / 0.85
-        elif class_match == "A":
-            self.percentile_match = 0.85
-            self.hhf_multiplier = 1 / 0.75
-        else:
-            raise ValueError(f"Class match {class_match} not supported")
-        
+        self.percentile = percentile
+        self.percentage = percentage
+        self.weibull = None
+
     @property
     def hf(self):
         """list of hit factor"""
@@ -45,30 +38,50 @@ class Weibull5:
         self._hf = _hf
 
     @property
-    def percentile_match(self):
+    def percentile(self):
         """Percentile to match"""
-        return self._percentile_match
+        return self._percentile
 
-    @percentile_match.setter
-    def percentile_match(self, _percentile_match):
-        """percentile_match.setter"""
-        self._percentile_match = _percentile_match
+    @percentile.setter
+    def percentile(self, _percentile):
+        """percentile.setter"""
+        self._percentile = _percentile
 
     @property
-    def hhf_multiplier(self):
-        """HHF multiplier"""
-        return self._hhf_multiplier
+    def percentage(self):
+        """Percentage of the percentile"""
+        return self._percentage
 
-    @hhf_multiplier.setter
-    def hhf_multiplier(self, _hhf_multiplier):
-        """hhf_multiplier.setter"""
-        self._hhf_multiplier = _hhf_multiplier
+    @percentage.setter
+    def percentage(self, _percentage):
+        """percentage.setter"""
+        self._percentage = _percentage
 
-    def get_hhf(self):
-        """Get hhf"""
-        weibull = self.fit_weibull()
-        percentile_hf = weibull.quantile(self.percentile_match)
-        hhf = percentile_hf * self.hhf_multiplier
+    def get_hhf(self, percentile=None, percentage=None):
+        """Get high hit factor from match percentile and percentage
+
+        Parameters
+        ----------
+        Percentile : float
+            The percentile to match
+        Percentage : float
+            The hit factor percentage (in fraction) of the percentile.
+
+        Returns
+        -------
+        hhf : float
+            The high hit factor
+        """
+        if percentile is not None:
+            self.percentile = percentile
+        if percentage is not None:
+            self.percentage = percentage
+        percentile = self.percentile
+        percentage = self.percentage
+        if self.weibull is None:
+            self.fit_weibull()
+        percentile_hf = self.weibull.quantile(percentile)
+        hhf = percentile_hf / percentage
         return hhf
 
     def fit_weibull(self, lam0=None, k0=3.6):
@@ -102,7 +115,7 @@ class Weibull5:
             lam, k = params
             weibull = uclass.statistics.weibull.Weibull(lam=lam, k=k)
             likelihood = weibull.pdf(x)
-            nll_ = -np.sum(np.log(likelihood))
+            nll_ = -np.mean(np.log(likelihood))
             return nll_
 
         samples = self.hf
@@ -117,6 +130,8 @@ class Weibull5:
         
         lam, k = res.x
         weibull = uclass.statistics.weibull.Weibull(lam, k)
+
+        self.weibull = weibull
 
         return weibull
         
