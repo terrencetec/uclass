@@ -12,10 +12,9 @@ def test_ppregress():
         hf_sample = pickle.load(f)
     with open("tests/data/co_hhf_sample.pkl", "rb") as f:
         hhf_sample = pickle.load(f)
-    classifier = "23-01"
-    division = "co"
-    stage_data = uclass.StageData(classifier, division)
-    ppregress = uclass.PPRegress(stage_data.hf, hf_sample, hhf_sample)
+    hf = np.loadtxt("tests/data/co_23-01.txt")
+
+    ppregress = uclass.PPRegress(hf, hf_sample, hhf_sample)
     hhf = ppregress.get_hhf()
     hhf_true = 10.85615024
     
