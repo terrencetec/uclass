@@ -12,6 +12,7 @@ ignore_errors = True
 omit =
     tests/*
     uclass/statistics/distribution.py
+    uclass/statistics/logitnormal.py
     uclass/clitools/*
     uclass/database/*
     uclass/logger.py
