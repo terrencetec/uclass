@@ -6,8 +6,6 @@ import numpy as np
 import uclass
 
 
-
-
 def test_ppregress():
     """Test PPRegress()"""
     with open("tests/data/co_hf_sample.pkl", "rb") as f:
