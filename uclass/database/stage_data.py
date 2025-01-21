@@ -28,8 +28,6 @@ class StageData:
         else:
             raise ValueError(f"Database {database} not supported.")
 
-        self.hf = self.get_hf()
-
     @property
     def classifier(self):
         """Classifier"""
@@ -53,12 +51,12 @@ class StageData:
     @property
     def hf(self):
         """Hit factors"""
-        return self._hf
+        return self.get_hf()
 
-    @hf.setter
-    def hf(self, _hf):
-        """hf.setter"""
-        self._hf = _hf
+    # @hf.setter
+    # def hf(self, _hf):
+    #     """hf.setter"""
+    #     self._hf = _hf
 
     @property
     def database(self):

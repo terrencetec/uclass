@@ -6,7 +6,16 @@ import uclass.statistics.weibull
 
 
 class Weibull5:
-    """Weibull 5"""
+    """Weibull 5
+
+    Notes
+    -----
+    This method fits a Weibull distribution to the hit factor data.
+    The high hit factor is then defined as
+    `weibull.quantile(percentile) / percentage`,
+    with default `percentile = 0.95` and `percentage = 0.85`,
+    i.e. Top 5 percent shooters are at least M class.
+    """
     def __init__(self, hf, percentile=0.95, percentage=0.85):
         """Constructor
 
